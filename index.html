@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrack - Never Miss Your Medicine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <span class="pill-icon">💊</span>
+                    <h1>MediTrack</h1>
+                </div>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
+            <p class="tagline">Your Personal Medicine Reminder Assistant</p>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-card">
+                <h3 id="totalMeds">0</h3>
+                <p>Total Medicines</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="todayDoses">0</h3>
+                <p>Today's Doses</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="adherenceRate">0%</h3>
+                <p>Adherence Rate</p>
+            </div>
+        </section>
+
+        <!-- Add Medicine Form -->
+        <section class="add-medicine">
+            <h2>Add New Medicine</h2>
+            <form id="medicineForm">
+                <div class="form-row">
+                    <input type="text" id="medName" placeholder="Medicine Name" required>
+                    <input type="text" id="medDosage" placeholder="Dosage (e.g., 1 tablet)" required>
+                </div>
+                <div class="form-row">
+                    <input type="time" id="medTime" required>
+                    <select id="medFrequency" required>
+                        <option value="">Select Frequency</option>
+                        <option value="daily">Daily</option>
+                        <option value="twice">Twice a Day</option>
+                        <option value="thrice">Thrice a Day</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                </div>
+                <textarea id="medNotes" placeholder="Notes (optional)" rows="2"></textarea>
+                <button type="submit" class="btn-primary">Add Medicine</button>
+            </form>
+        </section>
+
+        <!-- Medicine List -->
+        <section class="medicine-list">
+            <h2>Your Medicines</h2>
+            <div id="medicineContainer"></div>
+        </section>
+
+        <!-- Adherence Chart -->
+        <section class="chart-section">
+            <h2>Weekly Adherence</h2>
+            <canvas id="adherenceChart"></canvas>
+        </section>
+
+        <!-- Today's Schedule -->
+        <section class="schedule">
+            <h2>Today's Schedule</h2>
+            <div id="scheduleContainer"></div>
+        </section>
+    </div>
+
+    <!-- Notification Permission Modal -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <h3>Enable Notifications</h3>
+            <p>Allow MediTrack to send you medicine reminders</p>
+            <button onclick="requestNotificationPermission()" class="btn-primary">Enable</button>
+            <button onclick="closeModal()" class="btn-secondary">Later</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
